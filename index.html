@@ -1,0 +1,85 @@
+  <!DOCTYPE html>
+    <html lang="ja">
+      <head>
+        <meta charset="utf-8">
+        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>  
+        <link rel="stylesheet" href="main.css">
+        <title>リアルタイムフィルター</title>
+      </head>
+ 
+      <body>
+        <h3>リアルタイムフィルター</h3>
+ 
+        <p>入力した文字を含まない要素は非表示となります。</p>
+        
+        <input type="text" value="" id="serch"/>
+        <section class="display-container contents-flex">
+            <div class="display-box">
+                <div class="box-image"><img src="data:image/jpeg;base64,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"></img></div>
+                <div class="box-header">キーワード</div>
+                <div class="box-keywords contents-flex">
+                    <p>車</p>
+                    <p>くるま</p>
+                    <p>kuruma</p>
+                </div>
+            </div>
+            <div class="display-box">
+                <div class="box-image"><img src="https://i2.wp.com/tadaimajp.com/wp-content/uploads/2015/08/title_asagao.jpg?fit=790%2C535&ssl=1&w=640"></img></div>
+                <div class="box-header">キーワード</div>
+                <div class="box-keywords contents-flex">
+                    <p>朝顔</p>
+                    <p>あさがお</p>
+                    <p>asagao</p>
+                </div>
+            </div>
+            <div class="display-box">
+                <div class="box-image"><img src="https://lh3.googleusercontent.com/proxy/z4z7OPPwD8gd9v0fVaBuZuAg59SyQslC104TXk-5zrl09gHJbtnv33DIbf0uvWO7nYX16nGrj7SxGjMwqO-ofaODFKnmY8_DGQwK_foj6ZBVU-Ax_9mW1zMfmqWyz1on29EGt0Xb1vPKmhQXmFmvG1I0Ql4qvHzEBQyihOgMOckp2k7eD8S22w"></img></div>
+                <div class="box-header">キーワード</div>
+                <div class="box-keywords contents-flex">
+                    <p>青空</p>
+                    <p>あおぞら</p>
+                    <p>aozora</p>
+                </div>
+            </div>
+            <div class="display-box">
+                <div class="box-image"><img src="https://images-na.ssl-images-amazon.com/images/I/61nqgc9w08L._AC_SX522_.jpg"></img></div>
+                <div class="box-header">キーワード</div>
+                <div class="box-keywords contents-flex">
+                    <p>馬</p>
+                    <p>うま</p>
+                    <p>uma</p>
+                </div>
+            </div>
+            <div class="display-box">
+                <div class="box-image"><img src="https://kyouryu.net/wp-content/uploads/2020/02/mosasaurus2-01.jpg"></img></div>
+                <div class="box-header">キーワード</div>
+                <div class="box-keywords contents-flex">
+                    <p>恐竜</p>
+                    <p>きょうりゅう</p>
+                    <p>kyouryuu</p>
+                </div>
+            </div>
+            <div class="display-box">
+                <div class="box-image"><img src="https://dancyu.jp/images/mm3291.jpg"></img></div>
+                <div class="box-header">キーワード</div>
+                <div class="box-keywords contents-flex">
+                    <p>海老カツ</p>
+                    <p>えびかつ</p>
+                    <p>ebikatu</p>
+                </div>
+            </div>
+            <div class="display-box">
+                <div class="box-image"><img src="http://production-orp.s3.amazonaws.com/uploads/recipes/image/0000120775/20140623171722.jpg"></img></div>
+                <div class="box-header">キーワード</div>
+                <div class="box-keywords contents-flex">
+                    <p>ハンバーグ</p>
+                    <p>はんばーぐ</p>
+                    <p>hanba-gu</p>
+                </div>
+            </div>
+           
+        </section>
+ 
+        <script src="main.js"></script>
+      </body>
+    </html>
